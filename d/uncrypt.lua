@@ -24,6 +24,7 @@ function uncrypt.___convert_char_to_vars(en_char)
     local is_normal_value = true
     local special = false
     local upper = false
+    local acento = false
     local extra = false
     local numbers_list = {}
     local numbers_str = ""
@@ -52,12 +53,27 @@ function uncrypt.___convert_char_to_vars(en_char)
                 extra = true
                 break
             end
+            if oc:find("a") then
+                acento = true
+                break
+            end
+            if oc:find("A") then
+                upper = true
+                acento = true
+                break
+            end
         end
     end
     if is_normal_value == false then
         if special == false and upper == false and extra == false then
             print("[ERR]: Um Char foi criptografado errado!")
             return
+        end
+        if upper == true and acento == true then
+            type_return = 6
+        end
+        if acento == true then
+            type_return = 5
         end
         if special == true then
             type_return = 3
@@ -103,6 +119,12 @@ function uncrypt.___char(number, type)
     end
     if t == 4 then
         return Ekt[n]
+    end
+    if t == 5 then
+        return Akt[n]
+    end
+    if t == 6 then
+        return Uakt[n]
     end
 end
 uncrypt["___number_char_list"] = char_numbers_list

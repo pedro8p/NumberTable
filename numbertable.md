@@ -2,6 +2,8 @@
 
 *NumberTable* é uma criptografía nova, não feita para ser ultra difícil de desvendar, mas sim uma forma diferente de sei lá, `Cifra de César`.
 
+NOTA: Esta é a versão `1 Char Byte Only`, a tabela `Acentos`e `Acentos (Upper)` não funcionam aqui.
+
 Ela funciona tranformando as letras nós números que representa sua posição no alfabeto (ou uma ordem nova se não existir no alfabeto.)
 
 Exemplo:
@@ -27,7 +29,13 @@ Regrinhas:
 
 > **Especiais**    (com o prefixo `-s`)
 
-[ ` ` `~` `^` `´` ` ` \` `[` `]` `{` `}` `/` `:` `;` `<` `>` `@` `#` `$` `%` `¨` `&` `*` `(` `)` `-` `_` `=` `+` ]
+[ ` ` `~` `^` `´` `Crase` `[` `]` `{` `}` `/` `:` `;` `<` `>` `@` `#` `$` `%` `¨` `&` `*` `(` `)` `-` `_` `=` `+` ``` '` `\` `|` ]
 
 > **Extras**       (com o prefixo `-e`)
 [ `1` `2` `3` `4` `5` `6` `7` `8` `9` `0` `.` `,` `?` `!` ]
+
+> **Acento**       (com o prefixo `-a`)
+[ `á` `à` `ã` `â` `ä` `é` `è` `ẽ` `ê` `ë` `í` `ì` `ĩ` `î` `ï` `ó` `ò` `õ` `ô` `ö` `ú` `ù` `ũ` `û` `ü` `ç` ]
+
+> **Acento (Upper)** (com o prefixo `-A`)
+[ `Á` `À` `Ã` `Â` `Ä` `É` `È` `Ẽ` `Ê` `Ë` `Í` `Ì` `Ĩ` `Î` `Ï` `Ó` `Ò` `Õ` `Ô` `Ö` `Ú` `Ù` `Ũ` `Û` `Ü` `Ç` ]
