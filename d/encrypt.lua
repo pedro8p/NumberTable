@@ -32,6 +32,11 @@ function encrypt.___char(char)
             return tostring(i).."-s"
         end
     end
+    for i, char_il in ipairs(Ekt) do
+        if char == char_il then
+            return tostring(i).."-e"
+        end
+    end
 end
 
 return encrypt
