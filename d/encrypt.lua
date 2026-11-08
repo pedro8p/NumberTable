@@ -2,10 +2,11 @@ local encrypt = {}
 
 function encrypt.text(text)
     local t = text or ""
-    local cc = #t
+    local cc = utf8.len(t)
     local cl = {}
     local i = 0
-    for char in string.gmatch(text, ".") do
+    for _, cdp in utf8.codes(t) do
+        local char = utf8.char(cdp)
         i = i + 1
         table.insert(cl, encrypt.___char(char))
         if i < cc then

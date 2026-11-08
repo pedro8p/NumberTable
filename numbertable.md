@@ -2,7 +2,7 @@
 
 *NumberTable* é uma criptografía nova, não feita para ser ultra difícil de desvendar, mas sim uma forma diferente de sei lá, `Cifra de César`.
 
-NOTA: Esta é a versão `1 Char Byte Only`, a tabela `Acentos`e `Acentos (Upper)` não funcionam aqui.
+NOTA: Esta é a versão `UTF-8 Char Suport`, Essa versão está em desenvolvimento e na branch `utf8` invés da `main`.
 
 Ela funciona tranformando as letras nós números que representa sua posição no alfabeto (ou uma ordem nova se não existir no alfabeto.)
 

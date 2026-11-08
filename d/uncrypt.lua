@@ -31,7 +31,8 @@ function uncrypt.___convert_char_to_vars(en_char)
 
     local numbers_return = 1
     local type_return = 1
-    for oc in string.gmatch(enc, ".") do
+    for _, cdp in utf8.codes(enc) do
+        local oc = utf8.char(cdp)
         for _, number in ipairs(char_numbers_list) do
             if oc:find(number) then
                 table.insert(numbers_list, oc)
@@ -42,22 +43,27 @@ function uncrypt.___convert_char_to_vars(en_char)
         end
         if is_normal_value == false then
             if oc:find("s") then
+                Devh.log("Special Char")
                 special = true
                 break
             end
             if oc:find("u") then
+                Devh.log("Upper Char")
                 upper = true
                 break
             end
             if oc:find("e") then
+                Devh.log("Extra Char")
                 extra = true
                 break
             end
             if oc:find("a") then
+                Devh.log("Acento Char")
                 acento = true
                 break
             end
             if oc:find("A") then
+                Devh.log("Upper Acento Char")
                 upper = true
                 acento = true
                 break
@@ -65,9 +71,10 @@ function uncrypt.___convert_char_to_vars(en_char)
         end
     end
     if is_normal_value == false then
-        if special == false and upper == false and extra == false then
-            print("[ERR]: Um Char foi criptografado errado!")
-            return
+        if special == false and upper == false and extra == false and acento == false then
+            Devh.err("Um Char foi criptografado errado!")
+            numbers_return = 13
+            type_return = 4
         end
         if upper == true and acento == true then
             type_return = 6
@@ -86,7 +93,6 @@ function uncrypt.___convert_char_to_vars(en_char)
         end
     end
     numbers_str = table.concat(numbers_list)
-    Devh.log("numbers_str: " .. numbers_str)
     numbers_return = tonumber(numbers_str)
 
     if numbers_return == 0 then
@@ -97,7 +103,7 @@ function uncrypt.___convert_char_to_vars(en_char)
         numbers_return = 13
         type_return = 4
     end
-    Devh.log("Return: [ "..tostring(numbers_return)..", "..tostring(type_return).." ]")
+    --Devh.log("Return: [ "..tostring(numbers_return)..", "..tostring(type_return).." ]")
     return numbers_return, type_return
 end
 
