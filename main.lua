@@ -16,17 +16,19 @@ Skt = {
 }
 
 Ekt = {
-    ".", ",", "?", "!"
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", ",", "?", "!"
 }
 
-io.write("> d.ansi    [----]\r")
+io.write("> d.ansi    [-----]\r")
 local ansi = require("d.ansi")
-io.write("> d.encrypt [#---]\r")
+io.write("> d.encrypt [#----]\r")
 local encrypt = require("d.encrypt")
-io.write("> d.uncrypt [##--]\r")
+io.write("> d.uncrypt [##---]\r")
 local uncrypt = require("d.uncrypt")
-io.write("> d.tui     [###-]\r")
+io.write("> d.tui     [###--]\r")
 local tui = require("d.tui")
+io.write("> d.devh    [####-]\r")
+Devh = require("d.devh")
 print("> Inicializando NumberTable.")
 ansi.alt_screen(true)
 while Run do

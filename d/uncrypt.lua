@@ -28,7 +28,7 @@ function uncrypt.___convert_char_to_vars(en_char)
     local numbers_list = {}
     local numbers_str = ""
 
-    local numbers_return = 0
+    local numbers_return = 1
     local type_return = 1
     for oc in string.gmatch(enc, ".") do
         for _, number in ipairs(char_numbers_list) do
@@ -70,11 +70,18 @@ function uncrypt.___convert_char_to_vars(en_char)
         end
     end
     numbers_str = table.concat(numbers_list)
+    Devh.log("numbers_str: " .. numbers_str)
     numbers_return = tonumber(numbers_str)
 
     if numbers_return == 0 then
-        print("[ERR]: Um number continuou em 0 (o Minímo é 1)")
+        Devh.err("Um number continuou em 0 (o Minímo é 1)")
     end
+
+    if numbers_return == nil and type_return == 1 then
+        numbers_return = 13
+        type_return = 4
+    end
+    Devh.log("Return: [ "..tostring(numbers_return)..", "..tostring(type_return).." ]")
     return numbers_return, type_return
 end
 
