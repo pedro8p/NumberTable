@@ -6,7 +6,7 @@ Ela funciona tranformando as letras nós números que representa sua posição n
 
 Exemplo:
 
-`15-c_9_0-s_4_15_0-s_14-c_21_13_2_5_18_20-c_1_2_12_5`
+`15-c_9_1-s_4_15_1-s_14-c_21_13_2_5_18_20-c_1_2_12_5`
 
 `Oi do NumberTable`
 

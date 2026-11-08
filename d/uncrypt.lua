@@ -4,6 +4,21 @@ local char_numbers_list = {
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 }
 
+function uncrypt.text(text)
+    local t = text or ""
+    local cl = {}
+    local r = {}
+    for p in string.gmatch(t, "[^_]+") do
+        table.insert(cl, p)
+    end
+    for _, en_char in ipairs(cl) do
+        local c, tp = nil, nil
+        c, tp = uncrypt.___convert_char_to_vars(en_char)
+        table.insert(r, uncrypt.___char(c, tp))
+    end
+    return table.concat(r)
+end
+
 function uncrypt.___convert_char_to_vars(en_char)
     local enc = en_char or ""
     local is_normal_value = true

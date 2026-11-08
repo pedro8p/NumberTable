@@ -27,8 +27,8 @@ local tui = require("d.tui")
 io.write("> Inicializando.  \n")
 
 -- NumberTable aí.
-local texto = "Oi do NumberTable"
+local texto = "Ola Mundo Eu Finalmente Criei Minha Propria Criptografia Chamada NumberTable"
 local encripted = encrypt.text(texto)
 
 print("Original:\n"..texto.."\nEncriptado:\n"..encripted)
-print(uncrypt.___convert_char_to_vars("1-s"))
+print(uncrypt.text(encripted))
